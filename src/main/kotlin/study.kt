@@ -1,4 +1,5 @@
 import java.lang.IllegalArgumentException
+import java.lang.NumberFormatException
 
 fun sum (a : Int, b : Int) : Int = a + b
 
@@ -30,3 +31,9 @@ fun fizzbuzz(value: Int) : String = when {
 fun isLetter(c : Char) : Boolean = c in 'a'..'z' || c in 'A'..'Z'
 
 fun isDigit(c : Char) : Boolean = c in '0'..'9'
+
+fun parseInt(str : String) : Int = try {
+    Integer.parseInt(str)
+}catch (e : NumberFormatException) {
+    -1
+}

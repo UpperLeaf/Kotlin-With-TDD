@@ -1,5 +1,10 @@
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
+import java.io.BufferedReader
+import java.io.StringReader
+import java.lang.IllegalArgumentException
+import java.lang.NumberFormatException
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertNotEquals
@@ -179,4 +184,19 @@ class KotlinStudyTest {
         assertTrue("Kotlin" in setOf("Kotlin", "Java", "Scala", "Groovy"))
         assertTrue("C++" !in setOf("Kotlin", "Java", "Scala", "Groovy"))
     }
+
+    @Test
+    fun exceptionIsExpressionTest() {
+        assertThrows<IllegalArgumentException> {
+            val exception = throw IllegalArgumentException("")
+        }
+    }
+
+    @Test
+    fun tryIsExpressionTest() {
+        assertEquals(239, parseInt("239"))
+        assertEquals(241, parseInt("241"))
+        assertEquals(-1, parseInt("1ab"))
+    }
+
 }
