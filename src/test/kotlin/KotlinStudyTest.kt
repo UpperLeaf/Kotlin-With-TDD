@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertNotEquals
 
 class KotlinStudyTest {
 
@@ -72,5 +74,58 @@ class KotlinStudyTest {
         person.nickname = "nickname2"
 
         assertEquals("nickname2", person.nickname)
+    }
+
+    @Test
+    fun customPropertyTest() {
+        val square1 = Square(4, 4)
+        assertTrue(square1.isSquare)
+        val square2 = Square(5, 4)
+        assertFalse(square2.isSquare)
+    }
+
+    @Test
+    fun enumColorTest() {
+        var blue = Color.BLUE;
+        assertEquals(255, blue.b)
+        assertEquals(0, blue.r)
+        assertEquals(0, blue.g)
+
+        var red = Color.RED;
+        assertEquals(255, red.r)
+        assertEquals(0, red.g)
+        assertEquals(0, red.b)
+    }
+
+    @Test
+    fun matchWhenColorTest() {
+        assertEquals("warm", getWarmth(Color.RED))
+        assertEquals("cold", getWarmth(Color.BLUE))
+    }
+
+    @Test
+    fun matchWhenMixTest() {
+        assertEquals("orange", mixColor(Color.RED, Color.BLUE))
+        assertEquals("orange", mixColor(Color.BLUE, Color.RED))
+    }
+
+    @Test
+    fun numExpressionAndEvaluateTest() {
+        val three = Num(3)
+        val five = Num(5)
+
+        assertEquals(3, eval(three))
+        assertEquals(5, eval(five))
+    }
+
+    @Test
+    fun sumExpressionAndEvaluateTest() {
+        val three = Num(3)
+        val five = Num(5)
+        val result = sumExpression(three, five)
+        val result2 = sumExpression(result, five)
+
+        assertEquals(8, eval(result))
+        assertEquals(13, eval(result2))
     }
 }
