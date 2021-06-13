@@ -128,4 +128,55 @@ class KotlinStudyTest {
         assertEquals(8, eval(result))
         assertEquals(13, eval(result2))
     }
+
+    @Test
+    fun fizzbuzzTest() {
+        assertEquals("fizz", fizzbuzz(3))
+        assertEquals("fizz", fizzbuzz(6))
+        assertEquals("buzz", fizzbuzz(5))
+        assertEquals("buzz", fizzbuzz(10))
+        assertEquals("fizzbuzz", fizzbuzz(15))
+        assertEquals("fizzbuzz", fizzbuzz(30))
+    }
+
+    @Test
+    fun mapIterationTest() {
+        val map = mapOf(Pair("Key1", "Value1"), Pair("Key2", "Value2"))
+
+        for((key, value) in map) {
+            assertTrue(key.contains("Key"))
+            assertTrue(value.contains("Value"))
+        }
+    }
+
+    @Test
+    fun integerToBinaryStringTest() {
+        assertEquals("1", Integer.toBinaryString(1))
+        assertEquals("10", Integer.toBinaryString(2))
+        assertEquals("1010",  Integer.toBinaryString(10))
+    }
+
+    @Test
+    fun isLetterTest() {
+        assertTrue(isLetter('a'))
+        assertFalse(isLetter('1'))
+    }
+
+    @Test
+    fun isDigitTest() {
+        assertTrue(isDigit('1'))
+        assertFalse(isDigit('a'))
+    }
+
+    @Test
+    fun stringComparableTest() {
+        assertTrue("Kotlin" in "Java".."Scala")
+        assertFalse("Apple" in "Java".."Scala")
+    }
+
+    @Test
+    fun setInTest() {
+        assertTrue("Kotlin" in setOf("Kotlin", "Java", "Scala", "Groovy"))
+        assertTrue("C++" !in setOf("Kotlin", "Java", "Scala", "Groovy"))
+    }
 }

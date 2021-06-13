@@ -19,3 +19,14 @@ fun eval(expression: Expression) : Int = when (expression) {
 }
 
 fun sumExpression(expression1 : Expression, expression2: Expression) = Sum(expression1, expression2)
+
+fun fizzbuzz(value: Int) : String = when {
+    value % 15 == 0 -> "fizzbuzz"
+    value % 3 == 0 -> "fizz"
+    value % 5 == 0 -> "buzz"
+    else -> value.toString()
+}
+
+fun isLetter(c : Char) : Boolean = c in 'a'..'z' || c in 'A'..'Z'
+
+fun isDigit(c : Char) : Boolean = c in '0'..'9'
